@@ -1,0 +1,8 @@
+
+
+Write-Host "$($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty streetAddress) $($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty city) $($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty state) $($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty postalCode)"
+
+
+
+$webData = $(Invoke-RestMethod -Uri https://tools.learningcontainer.com/sample-json.json |select -ExpandProperty address)
+Write-Output "This is my Address: $($webData | select -Expand streetAddress) | $($webData |select -Expand city) $($webdata | select -Expand state) $($webData |select -Expand postalCode)"

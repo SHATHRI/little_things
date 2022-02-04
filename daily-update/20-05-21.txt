@@ -1,0 +1,43 @@
+Completed Tasks
+
+1.Creation of GitHub Account
+2.Creation of Git repo/s
+3.Creation of branches
+4.Clone/Pull/Push/Merge of code/branches
+5.Delete branches
+6.Create Tags
+7.Conflicts and resolution
+
+
+
+Worked on basic git concepts such as initialization, clone, add, commit, push and pull:
+
+git init				#initialization if Git repository
+git clone <url>				#cloning
+git add <file-name>			#adding files to the git repo
+git commit -m "message"			#commiting files to the repo
+git push				#pusing files to thwe repo
+git pull
+
+
+Worked on branching and merging and deleting conceps in Git:
+
+git checkout -b <branch-name>		#creating and checkout to that new branch
+git branch				#check the branches and to locate current branch
+git push -u origin <file-name>		#pushing the branch to the repo
+git checkout <branch-name>		#to navigate between the branches
+git merge <branch-name>			#merge new branch to main branch
+git checkout -d <branch-name>		#delete the branch
+
+
+Other resources used for learning:
+
+https://www.youtube.com/watch?v=WbwIoQYP6no
+
+https://www.youtube.com/watch?v=RGOj5yH7evk
+
+https://www.youtube.com/watch?v=sgzkY5vFKQQ
+
+https://www.youtube.com/watch?v=pDmYNK68IEc
+
+

@@ -1,0 +1,10 @@
+##.dockerignore
+Dockerfile
+[b|B]in
+[O|o]bj
+
+
+#dockerbuild#
+docker build -t <name> .
+#dockerrun#
+docker run -d -p 8050:80 <name>

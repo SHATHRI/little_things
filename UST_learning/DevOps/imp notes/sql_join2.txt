@@ -1,0 +1,48 @@
+CREATE TABLE tbl_Order(
+	OrderID int NOT NULL,
+	CustomerID int NOT NULL PRIMARY KEY,
+	EmployeeID int NOT NULL,
+	OrderDate int NOT NULL,
+	ShipperID int NOT NULL
+);
+select * from tbl_Order
+
+INSERT INTO tbl_Order
+VALUES
+('10308' , '2' , '7' , '2005' , '3'),
+('10309' , '37' , '3' , '2005' , '1'),
+('10310' , '77' , '8' , '2005' , '2');
+
+CREATE TABLE tbl_Customers(
+	CustomerID int FOREIGN KEY REFERENCES tbl_Order(CustomerID),
+	CustomerName varchar(50) NOT NULL PRIMARY KEY,
+	City varchar(50) NOT NULL,
+	PostalCode int NOT NULL,
+	Country varchar(50)
+);
+select * from tbl_Customers
+
+INSERT INTO tbl_Customers
+VALUES
+('2' , 'Shathri' , 'Palakkad' , '45678' , 'India'),
+('77' , 'Shilpa' , 'Trivandrum' , '76543' ,'India'),
+('37' , 'Athira' , 'Banglore' , '98765' , 'India');
+
+SELECT tbl_Order.OrderID, tbl_Order.OrderDate, tbl_Customers.CustomerName, tbl_Customers.City
+FROM tbl_Order
+INNER JOIN tbl_Customers ON tbl_Order.CustomerID= tbl_Customers.CustomerID
+ORDER BY tbl_Order.OrderID
+
+
+
+SELECT tbl_Order.OrderID, tbl_Customers.CustomerName, tbl_Customers.City, tbl_Customers.PostalCode
+FROM tbl_Order
+LEFT JOIN tbl_Customers ON tbl_Order.CustomerID= tbl_Customers.CustomerID
+ORDER BY tbl_Customers.City
+
+
+
+SELECT tbl_Order.ShipperID, tbl_Order.OrderID, tbl_Customers.CustomerName, tbl_Customers.City
+FROM tbl_Order
+RIGHT JOIN tbl_Customers ON tbl_Order.CustomerID= tbl_Customers.CustomerID
+ORDER BY tbl_Order.ShipperID

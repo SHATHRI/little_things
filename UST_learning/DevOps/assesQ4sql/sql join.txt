@@ -1,0 +1,61 @@
+CREATE DATABASE Tbl_Join;
+
+CREATE TABLE Persons(
+    PersonID int NOT NULL PRIMARY KEY,
+    FirstName varchar(50) NOT NULL,
+    LastName varchar(50) NOT NULL,
+    Age int NOT NULL
+);
+
+ 
+INSERT INTO Persons
+VALUES
+('1' , 'Shathri' , 'GIREESAN' , '22'),
+('2' , 'Shilpa' , 'Sharafudden' , '22'),
+('3' , 'Esha' , 'Gireesan' , '17'),
+('4' , 'Aparna' , 'Ajayan' , '22'),
+('5' , 'Athira' , 'Manikandan' , '22'),
+('6' , 'Sriya' , 'Gangadharan' , '22');
+select * from Persons
+
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL PRIMARY KEY,
+    OrderNumber int NOT NULL,
+    PersonID int FOREIGN KEY REFERENCES Persons(PersonID)
+);
+
+INSERT INTO Orders
+VALUES
+('1' , '5567' , '3'),
+('2' , '8765' , '2'),
+('3' , '3498' , '3'),
+('4' , '7543' , '1'),
+('5' , '9678' , '5'),
+('6' , '4683' , '4'),
+('7' , '3695' , '6'),
+('8' , '8645' , '4');
+select * from Orders
+
+SELECT Persons.FirstName , Orders.OrderNumber
+FROM Persons
+INNER JOIN Orders ON Persons.PersonID =  Orders.PersonID
+ORDER BY Persons.FirstName;
+
+
+SELECT Persons.FirstName , Orders.OrderNumber , Persons.Age
+FROM Persons
+LEFT JOIN Orders ON Persons.PersonID =  Orders.PersonID
+ORDER BY Persons.Age;
+
+
+SELECT Persons.FirstName , Orders.OrderNumber
+FROM Persons
+RIGHT JOIN Orders ON Persons.PersonID =  Orders.PersonID
+ORDER BY Orders.OrderNumber;
+
+
+SELECT Persons.FirstName , Orders.OrderNumber , Persons.Age , Orders.OrderID
+FROM Persons
+FULL OUTER JOIN Orders ON Persons.PersonID =  Orders.PersonID
+ORDER BY Orders.OrderID;

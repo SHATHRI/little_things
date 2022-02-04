@@ -1,0 +1,13 @@
+﻿Import-Module  WebAdministration
+
+
+$filepath ="D:\assessment_22.09.2021\dotnetcoreassessment\bin\Release\netcoreapp3.1\publish"
+$websiteurl= "helloworldcoreAssessment.com"
+$websitename= "dotnetcoreAssessment"
+
+New-WebAppPool -Name $websitename -Force
+
+New-Website -Name $websitename -Port 80 -IPAddress * -HostHeader $websiteurl -PhysicalPath $filepath -ApplicationPool $websitename -Force
+
+
+New-WebBinding -Name "$websitename" -IPAddress "*" -Port 80 -Protocol http

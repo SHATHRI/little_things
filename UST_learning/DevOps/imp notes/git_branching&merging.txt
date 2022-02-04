@@ -1,0 +1,13 @@
+git clone https://github.com/SHATHRI/Practice2.git
+git checkout -b sprint1
+(make changes in sprint1 branch)
+git add <filename>
+git commit -m "sprint1 change"
+git checkout master
+git checkout -b sprint2
+(make changes in sprint2 branch)
+git add <filename>
+git commit -m "sprint2 change"
+git checkout master
+git merge sprint1
+git branch -D sprint2

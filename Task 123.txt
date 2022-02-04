@@ -1,0 +1,27 @@
+Task1:
+# 1. validate If the website exists download the values from the url
+invoke-webrequest https://jsonplaceholder.typicode.com/todos/1 -DisableKeepAlive -UseBasicParsing -Method head 
+
+# 2. Print the user Id and status
+Write-output "The user Id is $(Invoke-WebRequest -Uri "https://jsonplaceholder.typicode.com/todos/1"| select -ExpandProperty content | ConvertFrom-Json | select -ExpandProperty userId) and status is $(Invoke-WebRequest -Uri "https://jsonplaceholder.typicode.com/todos/1" |  select -ExpandProperty content | ConvertFrom-Json | select -ExpandProperty completed)"
+
+print to a file :  Invoke-WebRequest -Uri "https://jsonplaceholder.typicode.com/todos/1" -OutFile "Desktop/result.txt" 
+
+
+# Task 2
+# Get the computer name, the logged in user along with the free space in the computer
+
+Get-CimInstance -ClassName Win32_LogicalDisk ; Get-CimInstance -ClassName Win32_ComputerSystem
+
+
+# Task 3
+Create a script that reads in a list of file names from a text file, creates the specified files .txt files
+
+
+ $files = Get-Content D:\task3\finallist.txt
+ $sourcepath = "D:\task3\" + $file + ".txt"
+ 
+foreach ($file in $files){
+ $sourcePath = "D:\task3\" + $file + ".txt"
+ New-Item $sourcePath
+ }

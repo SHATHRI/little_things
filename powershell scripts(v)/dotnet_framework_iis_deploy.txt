@@ -1,0 +1,15 @@
+﻿Import-Module  WebAdministration
+
+
+$filepath ="D:\assessment_22.09.2021\dotnetFrameworkApplication"
+$websiteurl= "helloworldframeworkAssessment.com"
+$websitename= "dotnetframeworkAssessment"
+
+New-WebAppPool -Name $websitename -Force
+
+New-Website -Name $websitename -Port 83 -IPAddress * -HostHeader $websiteurl -PhysicalPath $filepath -ApplicationPool $websitename -Force
+
+
+
+New-WebBinding -Name "$websitename" -IPAddress "*" -Port 83 -Protocol http
+

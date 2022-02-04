@@ -1,0 +1,43 @@
+Update 25/05/2021
+
+Continued the course in Pluralsight:
+3. Powershell Basics
+	-Command basics
+	-Demo: Exploring Powershell verb
+	-Demo: Working with aliases and parameters
+	-3 important commands
+		Get-Command
+		Get-Help
+		Get-Member
+	-Demo: Finding answers in powershell console
+	-Researching commands with Get-Command
+	(to be continued)
+
+
+Commands learned:
+get-verb
+//list of all verbs used in powershell
+Get-Alias
+//list of all aliases
+get-alias -Definition *service*
+//to find all alias that applied to command that deal with service
+Get-Command
+//used to search installed commands
+Get-Help
+//displat 'how to' information for all commands that can be used in powershell
+get-command -Commandtype Function | measure-object
+//gives the number of built-in functions
+Get-NetIPAddress
+//gives the IP address information
+
+
+Learned  Git Version Control by Katacoda:
+Scenario1- Commiting files
+Scenario2- Commiting changes
+Scenario3- Working Remotely
+Scenario4- Undoing changes
+Scenario5- Fixing merge conflicts
+Scenario6- Experiments using branches
+Scenario7- finding bugs
+Scenario8- Cherrypick with Git
+Scenario9- Rewriting history

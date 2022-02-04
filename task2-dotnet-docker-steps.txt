@@ -1,0 +1,30 @@
+#Install Docker EE in windows if it is not available using powershell scripts
+https://download.docker.com/components/engine/windows-server/17.06/docker-17.06.2-ee-7.zip
+
+
+
+function installDocker($url,$destination,$unzip_destination)
+{
+Write-host "downloading started"
+Invoke-WebRequest -uri $url -OutFile $destination
+Write-Host "ready to extract"
+Write-Host "extracting files...."
+Expand-Archive -LiteralPath $destination -DestinationPath $unzip_destination
+}
+
+installDocker "https://download.docker.com/components/engine/windows-server/17.06/docker-17.06.2-ee-7.zip" "C:\Users\Administrator\Downloads\docker.zip" "C:\Program Files\Docker_unzip"
+
+
+
+$null = Enable-WindowsOptionalFeature -Online -FeatureName containers –All
+$null = Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All
+Restart-Computer -Force
+
+
+dockerd --register-service
+start-service docker
+docker build -t <name> .
+docker run -d -p 8050:80 <name>
+docker image ls
+docker container ls
+docker container rm <containerid/containername>

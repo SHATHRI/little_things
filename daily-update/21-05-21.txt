@@ -1,0 +1,23 @@
+21/05/2021 Update
+
+Worked on basic powershell scriting concepts:
+
+Set-Location/cd		#Sets the current working location to a specified location
+Get-Content/cat		#Gets the contents of a file
+Clear-Content/clc	#Deletes the contents of an item, but does not delete the item
+Clear-History/clear	#Clears the display in the host program
+Get-History		#Gets a list of the commands entered during the current session
+Get-Command		#Gets all commands
+Get-Alias		#Gets all aliases 
+help			#Displays information about Windows PowerShell commands and concepts
+mkdir			#Creates a new item
+Rename-Item		#Renames an item in a Windows PowerShell provider namespace
+Remove-Item		#Deletes files and folders
+Copy-Item		#Copies an item from one location to another
+
+
+Other resources used for learning:
+
+https://www.youtube.com/watch?v=IHrGresKu2w&list=RDQM9zYZmN_22DQ&start_radio=1
+
+https://www.youtube.com/watch?v=TUNNmVeyjW0

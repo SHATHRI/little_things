@@ -1,0 +1,51 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+WORKDIR /app
+
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+WORKDIR /app
+
+COPY --from=build-env /app/out .
+
+ENTRYPOINT ["dotnet", "HealthyYou.dll"]
+
+
+----------------------------------------------------------------------------------------------
+
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
+
+WORKDIR /app
+
+# copy csproj and restore as distinct layers
+
+COPY *.sln .
+
+COPY *.csproj ./aspnetapp/
+
+COPY *.config ./aspnetapp/
+
+RUN nuget restore
+
+# copy everything else and build app
+
+COPY . ./aspnetapp/
+
+WORKDIR /app/aspnetapp
+
+RUN msbuild /p:Configuration=Release
+
+# copy build artifacts into runtime image
+
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS runtime
+
+WORKDIR /inetpub/wwwroot
+
+COPY --from=build /app/aspnetapp/. ./

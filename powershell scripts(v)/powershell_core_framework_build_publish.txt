@@ -1,0 +1,12 @@
+cd Application1
+& "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" Application1.csproj /p:Configuration="Release" /t:Clean
+
+cd Application1
+& "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe" Application1.csproj /p:PublishProfile=FolderProfile /p:DeployOnBuild=true /p:Configuration="Release" /t:Rebuild /p:OutputPath=publish /p:Platform='Any CPU'
+
+dotnet build
+dotnet publish
+
+msbuild 
+msbuild Project.csproj /t:Publish /p:Configuration=Deploy
+

@@ -1,0 +1,15 @@
+$files = Get-Content D:\task3\list.txt
+foreach ($file in $files) {
+    $sourcePath = "D:\task3\" + $file + ".txt"   
+    New-Item $sourcePath
+}
+
+
+
+$statusCode = Get-UrlStatusCode "https://jsonplaceholder.typicode.com/todos/1"
+Invoke-RestMethod -Uri https://jsonplaceholder.typicode.com/todos/1
+Write-Output "The user Id is $(Invoke-webrequest -URI "https://jsonplaceholder.typicode.com/todos/1" | select -ExpandProperty content | ConvertFrom-Json | select -ExpandProperty userId) and status is $(Invoke-webrequest -URI "https://jsonplaceholder.typicode.com/todos/1" | select -ExpandProperty content | ConvertFrom-Json | select -ExpandProperty completed)"
+
+
+Get-CimInstance -ClassName Win32_LogicalDisk ;  Get-CimInstance -ClassName Win32_ComputerSystem
+Get-PSDrive

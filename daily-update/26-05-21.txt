@@ -1,0 +1,39 @@
+Update 26/05/2021
+
+Continued the course in Pluralsight
+	-Demo: Documenting your work in Powershell console
+	-Objects in Powershell
+	-Demo: Finding object properties with get-Member
+4. Gathering information with Powershell
+	-Troubleshooting made simple
+	-Gathering information with Powershell
+	-Demo: Finding your way in Powershell
+	-Gathering Operating System information
+	-Demo: gathering computer information
+	-Demo: Using WMI and CIM information
+
+
+Commands learned:
+Get-Member
+//gets properties and methods of object
+Get-WmiObject -Lists*
+//bring list of all WMI objects, all of the class name & classes that we can work with
+Get-CimClass
+//lists that include all classes & class name taht we can work with
+Get-CimClass -Classname *keyword
+//brings all different items with that keyword in it
+
+
+Windows based applications
+1.Understanding .NET Applications
+-Microsoft ASP.Net introduction
+
+
+Practised again on the katacoda Git Version Control
+
+
+Resourses used:
+https://app.pluralsight.com/course-player?clipId=d6eaf859-25d1-46c8-8e82-7a53de09fcf2  (pluralsight)
+https://www.youtube.com/watch?v=h7huHkvPoEE  (.NET introduction)
+https://www.youtube.com/watch?v=ccXz-oIrFe0  (ASP .NET introduction)
+https://www.katacoda.com/courses/git   (katacoda course)

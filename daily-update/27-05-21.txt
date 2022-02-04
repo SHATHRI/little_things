@@ -1,0 +1,42 @@
+Update 27/05/2021
+
+Powershell getting started:
+(course continuation)
+	-Demo: Working with Networking information
+	-Demo: Reviewing event log information
+	-Demo: Using Get-ComputerInfo
+	-Demo: Working with files and folders
+5. Remoting with Powershell
+	-Running remote commands
+	-Powershell remoting basics
+	-Enable powershell remoting
+	-Demo: Requirements of remoting
+	(to be continued)
+
+Commands learned:
+ipconfig
+//brings IP configuration information
+Get-NetIPAddress
+//brings IP address for all the adapters that is used in the system
+Get-NetIPConfiguration
+//bring back IP address of Ethernet
+Get-DnsClient
+//bring the DNS client information for the interfaces of the system
+Get-EventLog
+//gets the event log in the computer
+Get-ComputerInfo
+//gather large amount of information about the computer
+Get-ChildItem
+//to navigate between folders and files
+Copy-Item
+//to copy an file to another
+move-item
+//move a file or folder to a different destination
+Rename-Item
+//rename a file name
+Enable-PSRemoting
+//to enable remoting on target computer
+Set-PSSessionConfiguration
+//give the user access to PS remoting
+Install-PoweShellRemoting -ps1
+//for installing powershell remoting

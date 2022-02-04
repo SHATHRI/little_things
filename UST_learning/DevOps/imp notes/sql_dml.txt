@@ -1,0 +1,38 @@
+CREATE TABLE Persons(
+    PersonID int NOT NULL PRIMARY KEY
+    FirstName varchar(50) NOT NULL
+    LastName varchar(50) NOT NULL
+    Age int NOT NULL
+);
+
+ 
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL PRIMARY KEY,
+    OrderNumber int NOT NULL,
+    PersonID int FOREIGN KEY REFERENCES Persons(PersonID)
+);
+
+
+
+INSERT INTO Persons
+VALUES
+('1' , 'Shathri' , 'GIREESAN' , '22'),
+('2' , 'Shilpa' , 'Sharafudden' , '22'),
+('3' , 'Esha' , 'Gireesan' , '17');
+select * from Persons
+UPDATE  demo SET Firstname= 'Aparna', Lastname= 'Ajayan' , Age='22'
+WHERE PersonID = '3';
+
+ 
+
+INSERT INTO Orders
+VALUES
+('1' , '5567' , '3')
+('2' , '8765' , '2')
+('3' , '3498' , '3')
+('4' , '7543' , '1')
+select * from Orders
+DELETE FROM Orders WHERE OrderID= '4';
+
+

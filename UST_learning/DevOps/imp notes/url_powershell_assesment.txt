@@ -1,0 +1,23 @@
+(Invoke-webrequest -URI "https://tools.learningcontainer.com/sample-json.json").Content
+$string = '
+{
+    "firstName": "Rajesh",
+    "lastName": "Kumar",
+    "gender": "man",
+    "age": 24,
+    "address": {
+        "streetAddress": "126 Udhna",
+        "city": "Surat",
+        "state": "GJ",
+        "postalCode": "394221"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "7383627627" }
+    ]
+}'
+$op1 = ($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty streetAddress)
+$op2 = ($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty city)
+$op3 = ($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty state)
+$op4 = ($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty postalCode)
+
+Write-Output "This is my address: $op1 $op2 $op3 $op4"

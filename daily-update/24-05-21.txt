@@ -1,0 +1,38 @@
+24/05/2021 Update
+
+Started a course in Pluralsight on PowerShell
+Course Name: PowerShell, Getting started. By Michael Bender
+
+Covered 2 Modules in the Course
+1. Overview
+	- Basic commands in Powershell
+	- Gathering information
+	- Powershell with remote computers
+	- Building a basic script
+2. Introduction to Powershell
+	- What is Powershell
+	- Windows Powershell and Powershell core
+	- Installation and imporatance of Powershell
+	- Demo: Using Powershell to report on stopped server services
+
+
+Commands learned:
+-Get-Services	
+//"brings all started and stopped services that are running in our system"
+-get-services | Where-Object Status -eq 'Stopped'
+//"brings all stopped services running in the system"
+-get-services | Where-Object Status -eq 'Stopped' | Select-Object Name,Status
+//"brings all stopped services with tags only names and status"
+-$data = get-services | Where-Object Status -eq 'Stopped' | Select-Object Name,Status
+//"assigning all stopped services with tags names and status to variable $data"
+-$data | out-file .\<filename>
+//"piping all data in variables to a file"
+-notepad .\<filename>
+//"get all contents of file in notepad"
+-$data | export-csv .\<filename>
+-get-content .\<filename> | more
+//"to view contents in console"
+-$PSVersionTable
+//"displays version of Poweshell"
+-(get-commands).count
+//"gives total number of commands"

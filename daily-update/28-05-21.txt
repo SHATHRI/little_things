@@ -1,0 +1,24 @@
+Update 28/05/2021
+
+Continued the session Powershell- Getting started
+	-Working with variables
+	-Demo: Working with variables
+	-Options for remoting Powershell
+	-Demo: Remoting with Powershell
+	-Demo: Remoting with Invoke-Command
+	-Demo: Remoting with New-CimSession
+6. Building a User Inventory Script with PowerShell
+
+Commands learned:
+Get-ChildItem ENV: |more
+//get access to environment variables
+$env: Computername
+//to get the computer name and store in to variable env
+Computername (parameter)
+//enables to collect data and change settings one or more remote computer
+*-PSSession
+//allows o create , enter and remove PS remote session
+Invoke-Command
+//allows to run a script block against a system
+$credential= Get-Credential
+//to set the credential

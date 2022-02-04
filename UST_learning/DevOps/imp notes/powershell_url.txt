@@ -1,0 +1,39 @@
+(Invoke-webrequest -URI "https://jsonplaceholder.typicode.com/todos/1").Content  
+
+Invoke-WebRequest -Uri "https://jsonplaceholder.typicode.com/todos/1" | select -ExpandProperty Content | Out-File test.txt 
+
+Write-Output "The Title is: $(Invoke-WebRequest -Uri "https://jsonplaceholder.typicode.com/todos/1" | select -ExpandProperty content | ConvertFrom-Json | select -ExpandProperty title)"
+
+
+
+
+
+
+
+
+Invoke-WebRequest https://jsonplaceholder.typicode.com/todos/1 | Select-Object -Expand Content | Add-Content test.txt
+
+ Get-Content .\test.txt
+
+ $select = (Get-Content .\test.txt -TotalCount 6)[-3] | Select-String -Pattern 'title' | select line
+
+ $op = $select.Line.split(':')[1]
+
+ Write-Output "The Title is: $op"
+
+
+{
+  "userId": 1,
+  "id": 1,
+  "title": "delectus aut autem",
+  "completed": false
+}
+
+
+
+Write-Host "$($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty streetAddress) $($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty city) $($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty state) $($string | ConvertFrom-Json | select -ExpandProperty address | select -ExpandProperty postalCode)"
+
+
+
+$webData = $(Invoke-RestMethod -Uri https://tools.learningcontainer.com/sample-json.json |select -ExpandProperty address)
+Write-Output "This is my Address: $($webData | select -Expand streetAddress) | $($webData |select -Expand city) $($webdata | select -Expand state) $($webData |select -Expand postalCode)"

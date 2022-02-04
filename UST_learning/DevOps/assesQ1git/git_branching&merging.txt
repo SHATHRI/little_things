@@ -1,0 +1,18 @@
+git clone https://github.com/SHATHRI/Practice2.git
+git checkout -b sprint1
+(make changes in sprint1 branch)
+git add <filename>
+git commit -m "sprint1 change"
+git push --set-upstream origin sprint1
+git checkout master
+git checkout -b sprint2
+(make changes in sprint2 branch)
+git commit -am "sprint2 change"
+git push --set-upstream origin sprint2
+git checkout master
+git merge sprint1
+git branch -D sprint2
+git push
+git log
+git diff 4dd921 dc8240
+

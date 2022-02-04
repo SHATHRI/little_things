@@ -1,0 +1,10 @@
+function installDocker($url,$destination,$unzip_destination)
+{
+Write-host "downloading started"
+Invoke-WebRequest -uri $url -OutFile $destination
+Write-Host "ready to extract"
+Write-Host "extracting files...."
+Expand-Archive -LiteralPath $destination -DestinationPath $unzip_destination
+}
+
+installDocker "https://download.docker.com/components/engine/windows-server/17.06/docker-17.06.2-ee-7.zip" "C:\Users\Administrator\Downloads\docker.zip" "C:\Program Files\Docker_unzip"
